@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form id="patientform">
+			<h:panelGrid columns="2">
+
+				<h:outputText value="#{msg.patientFirstNameLabel}" />
+				<h:inputText id="name" value="#{patientBean.patient.patientFirstName}" />
+
+				<h:outputText value="#{msg.patientLastNameLabel}" />
+				<h:inputText id="nazwisko" value="#{patientBean.patient.patientLastName}" />
+
+				<h:outputText value="#{msg.patientPeselLabel}" />
+				<h:inputText id="pesel" value="#{patientBean.patient.pesel}" />
+			
+				<h:outputText value="#{msg.dataWizyty}" />
+				<h:inputText id="data" value="#{patientBean.patient.dataWizyty}" />
+			
+			</h:panelGrid>
+
+			<h:commandButton value="#{msg.personFormOKButton}"
+				action="#{patientBean.addPatient}" />
+				
+			<h:panelGrid>
+				<h:messages showDetail="#{true}" showSummary="#{false}" />
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
